@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="plugin" group="system" method="upgrade">
+	<name>Google Analytics</name>
+	<author>Carsten Ruppert – HEAD. MARKETING GmbH</author>
+	<creationDate>2018-02-28</creationDate>
+	<copyright>Copyright (C) 2018 HEAD. MARKETING GmbH</copyright>
+	<license></license>
+	<authorEmail>webmaster@headmarketing.de</authorEmail>
+	<authorUrl>www.headmarketing.de</authorUrl>
+	<version>0.1.0</version>
+	<description>Integration Google Analytics Tracker mit User Opt-out</description>
+	<files>
+		<filename plugin="ganalytics">ganalytics.php</filename>
+		<filename>index.html</filename>
+		<folder>language</folder>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="de-DE">language/de-DE.plg_system_ganalytics.ini</language>
+		<language tag="de-DE">language/de-DE.plg_system_ganalytics.sys.ini</language>
+	</languages>
+	<media destination="plg_ganalytics" folder="media">
+		<filename>index.html</filename>
+		<folder>js</folder>
+		<folder>less</folder>
+		<folder>css</folder>
+	</media>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<!-- Vorerst gesperrt
+				<field
+					name="cookiename"
+					type="text"
+				/>
+				-->
+				<field
+					name="trackingid"
+					type="text"
+					default=""
+					class="input-small"
+		    		label="PLG_GANALYTICS_FIELD_TRACKINGID_LABEL"
+					description="PLG_GANALYTICS_FIELD_TRACKINGID_DESC"
+				/>
+
+				<field
+					name="note-optout"
+					type="note"
+					label="PLG_GANALYTICS_NOTE_OPTOUT_LABEL"
+					description="PLG_GANALYTICS_NOTE_OPTOUT_DESC"
+				/>
+
+				<field
+					name="showmessage"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="PLG_GANALYTICS_FIELD_SHOW_MESSAGE_LABEL"
+					description="PLG_GANALYTICS_FIELD_SHOW_MESSAGE_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+
+				<field
+					name="reloadpage"
+					type="radio"
+					class="btn-group"
+					default="1"
+					label="PLG_GANALYTICS_FIELD_RELOAD_PAGE_LABEL"
+					description="PLG_GANALYTICS_FIELD_RELOAD_PAGE_DESC"
+				>
+					<option value="0">JNO</option>
+					<option value="1">JYES</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
