@@ -9,7 +9,7 @@
 			css 			: {visible : 'visible', button : 'msg-close'},
 			cookiename 		: 'gaoptout',
 			realoadPage 	: true,
-			messsage 		: ''
+			message 		: ''
 		},
 
 		init : function( options )
