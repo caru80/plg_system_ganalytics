@@ -1,55 +1,53 @@
+.plg-googleanalytics {
+	position: fixed;
+	z-index: 1000;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s linear;
+	transition: opacity 0.3s linear;
+	font-size: 0.9em;
+	text-align: center;
+	background-color: #444444;
+	color: #dddddd;
+}
 @media (min-width: 768px) {
-  .gaoptout-message {
-    padding: 0.2em 0;
-  }
+	.plg-googleanalytics {
+		padding: 0.2em 0;
+	}
 }
-.gaoptout-message {
-  position: fixed;
-  z-index: 100;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s linear;
-  transition: opacity 0.3s linear;
-  font-size: 0.9em;
-  text-align: center;
-  background-color: #444444;
-  color: #dddddd;
+.plg-googleanalytics.visible {
+	opacity: 1;
 }
-.gaoptout-message.visible {
-  opacity: 1;
+.plg-googleanalytics span {
+	display: inline-block;
+	margin: 0 0.75em;
+	padding: 0.75em 0;
 }
-.gaoptout-message span {
-  display: inline-block;
-  margin: 0 0.75em;
-  padding: 0.75em 0;
+.plg-googleanalytics .btn {
+	margin: 0.2em 0.25em;
+	font-size: 0.9em;
+	color: #dddddd;
+	background-color: #323232;
+	border-color: #2b2b2b;
 }
-.gaoptout-message .btn {
-  margin: 0.2em 0.25em;
-  font-size: 0.9em;
-  color: #dddddd;
-  background-color: #323232;
-  border-color: #2b2b2b;
+.plg-googleanalytics .btn:hover,
+.plg-googleanalytics .btn:active,
+.plg-googleanalytics .btn:focus{
+	background-color: #191919;
+	border-color: #0c0c0c;
 }
-.gaoptout-message .btn:focus {
-  color: #dddddd;
-  background-color: #191919;
-  border-color: #000000;
+.plg-googleanalytics .btn:focus {
+	border-color: #000000;
 }
-.gaoptout-message .btn:hover,
-.gaoptout-message .btn:active {
-  color: #dddddd;
-  background-color: #191919;
-  border-color: #0c0c0c;
+
+.plg-googleanalytics .btn:active {
+	background-image: none;
 }
-.gaoptout-message .btn:active:hover,
-.gaoptout-message .btn:active:focus {
-  color: #dddddd;
-  background-color: #070707;
-  border-color: #000000;
-}
-.gaoptout-message .btn:active {
-  background-image: none;
+.plg-googleanalytics .btn:active:hover,
+.plg-googleanalytics .btn:active:focus {
+	background-color: #070707;
+	border-color: #000000;
 }

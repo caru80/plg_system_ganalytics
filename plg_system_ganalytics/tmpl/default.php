@@ -26,7 +26,7 @@ ga('send', 'pageview');
 			<?php if($this->params->get('reloadpage',1)):?>,reloadPage : true <?php endif;?>
 			<?php if($this->params->get('showmessage',1)):?>
 
-			,message 	: 	'<div id="gaoptoutmessage" class="gaoptout-message">' +
+			,message 	: 	'<div id="plg-googleanalytics" class="plg-googleanalytics">' +
 								'<span><?php echo JText::_('PLG_GANALYTICS_FRONT_TEXT');?></span>' +
 								'<span>' +
 									'<a tabindex="0" class="btn msg-close"><?php echo JText::_('PLG_GANALYTICS_FRONT_BTN_OK');?></a>' +
