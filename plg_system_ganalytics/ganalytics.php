@@ -2,6 +2,7 @@
 defined( '_JEXEC' ) or die();
 
 jimport('joomla.plugin.plugin');
+jimport('joomla.filesystem.file');
 
 class plgSystemGanalytics extends JPlugin
 {
@@ -23,13 +24,23 @@ class plgSystemGanalytics extends JPlugin
 
 	private function insertAssets()
 	{
-		$doc = JFactory::getApplication()->getDocument();
+		$app = JFactory::getApplication();
+		$doc = $app->getDocument();
 
 		$doc->addScript('media/plg_ganalytics/js/plgganalytics.min.js');
 
 		if((bool)$this->params->get('showmessage', true))
 		{
-			$doc->addStylesheet('media/plg_ganalytics/css/plgganalytics.css');
+			if(JFile::exists(JPATH_ROOT . DIRECTORY_SEPARATOR . "templates" . DIRECTORY_SEPARATOR . $app->getTemplate() . DIRECTORY_SEPARATOR . "html" . DIRECTORY_SEPARATOR . "plg_system_ganalytics" . DIRECTORY_SEPARATOR . "plgganalytics.css"))
+			{
+				// CSS Override
+				$doc->addStylesheet("templates/" . $app->getTemplate() . "/html/plg_system_ganalytics/plgganalytics.css");
+			}
+			else
+			{
+				// Plugin CSS
+				$doc->addStylesheet('media/plg_ganalytics/css/plgganalytics.min.css');
+			}
 		}
 
 		return;
