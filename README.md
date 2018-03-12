@@ -2,7 +2,7 @@
 
 plg_system_ganalytics
 
-![Screenshot](/docs/images/screenshot2.png?raw=true "Screenshot")
+![Screenshot](/docs/images/screenshot.png?raw=true "Screenshot")
 
 ## Ein Template-Override erstellen:
 
