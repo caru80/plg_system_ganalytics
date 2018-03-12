@@ -11,7 +11,8 @@ class plgSystemGanalytics extends JPlugin
 	private $cookieName;
 	private $optOutDone;
 	private $trackingId;
-	private $html;
+	private $trackingSnipped;
+	private $optoutSnipped;
 
 	public function __construct( &$subject, $params )
 	{
@@ -52,21 +53,30 @@ class plgSystemGanalytics extends JPlugin
 
 		$this->insertAssets();
 
-		$path = JPluginHelper::getLayoutPath('system', 'ganalytics');
-		// Rendere Google Analytics
+		$path = JPluginHelper::getLayoutPath('system', 'ganalytics', $this->params->get('gamethod','default'));
+		// Rendere Google Analytics JS Snipped
 		ob_start();
 		include $path;
-		$this->html = ob_get_clean();
+		$this->trackingSnipped = ob_get_clean();
+
+		// Rendere das Opt-out Script
+		$path = JPluginHelper::getLayoutPath('system', 'ganalytics', 'optout');
+		ob_start();
+		include $path;
+		$this->optoutSnipped = ob_get_clean();
 	}
 
 	public function onAfterRender()
 	{
-		if(empty($this->html)) return;
+		if(empty($this->trackingSnipped)) return;
 
 		$buffer = JResponse::getBody();
+		$buffer = str_replace("</head>", $this->trackingSnipped . "\n</head>", $buffer);
 
-		$buffer = str_replace("</head>", $this->html . "\n</head>", $buffer);
-
+		if(!empty($this->optoutSnipped))
+		{
+			$buffer = str_replace("</body>", $this->optoutSnipped . "\n</body>", $buffer);
+		}
 		JResponse::setBody( $buffer );
 	}
 }

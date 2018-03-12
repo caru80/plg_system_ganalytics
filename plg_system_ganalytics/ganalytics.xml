@@ -28,12 +28,18 @@
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<!-- Vorerst gesperrt
 				<field
-					name="cookiename"
-					type="text"
-				/>
-				-->
+					name="gamethod"
+					type="radio"
+					class="btn-group"
+					default="analyticsjs"
+					label="PLG_GANALYTICS_FIELD_GAMETHOD_LABEL"
+					description="PLG_GANALYTICS_FIELD_GAMETHOD_DESC"
+				>
+					<option value="analyticsjs">PLG_GANALYTICS_GAMETHOD_OPT_ANALYTICSJS</option>
+					<option value="gtagjs">PLG_GANALYTICS_GAMETHOD_OPT_GATAGJS</option>
+				</field>
+
 				<field
 					name="trackingid"
 					type="text"
