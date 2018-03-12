@@ -65,7 +65,7 @@ class plgSystemGanalytics extends JPlugin
 
 		$buffer = JResponse::getBody();
 
-		$buffer = str_replace("</body>", $this->html . "\n</body>", $buffer);
+		$buffer = str_replace("</head>", $this->html . "\n</head>", $buffer);
 
 		JResponse::setBody( $buffer );
 	}
